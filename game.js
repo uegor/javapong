@@ -6,5 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
     H = document.activeElement.clientHeight
 
     var hero = document.getElementsByClassName("hero")[0]
+
+    hero.style.left = W/2 - 25 + "px"
+    hero.style.top = H/2 - 25 + "px"
     
 })

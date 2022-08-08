@@ -1,0 +1,11 @@
+h1{
+    text-align:center;
+}
+
+.hero{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: red;
+    left:0px; top:0px;
+}

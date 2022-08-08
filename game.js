@@ -1,3 +1,4 @@
+let x,y,hero
 
 //сразу после загрузки страницы срабатывает этот код
 document.addEventListener("DOMContentLoaded", function() {
@@ -5,9 +6,17 @@ document.addEventListener("DOMContentLoaded", function() {
     W = document.activeElement.clientWidth
     H = document.activeElement.clientHeight
 
-    var hero = document.getElementsByClassName("hero")[0]
+    hero = document.getElementsByClassName("hero")[0]
 
-    hero.style.left = W/2 - 25 + "px"
-    hero.style.top = H/2 - 25 + "px"
-    
+    x = W/2 - 25 
+    y = H/2 - 25
 })
+
+function move(){
+    x += 1
+    y += 1
+    hero.style.left = x + "px"
+    hero.style.top = y + "px"
+}
+
+setInterval(move,1)

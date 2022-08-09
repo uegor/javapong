@@ -65,12 +65,12 @@ function move(){
 
     //x и у это координаты левого верхнего угла мячика
     //&& логическое И, 250 - высота платформы
-    if (x<50 || x+25 > W-50){
-        if ((y > player1_y && y<player1_y+250) || (y > player2_y && y<player2_y+250)){
+    if ((x<50 && (y > player1_y && y<player1_y+250)) ||
+        (x+25 > W-50 && (y > player2_y && y<player2_y+250))){
             xspeed *= -1;
             yspeed += 1;
             yspeed *= -1;
-    }}
+    }
 
     if (x<0) loose(1)
     if (x>W) loose(2)
@@ -80,8 +80,13 @@ function move(){
     hero.style.top = y
 
     player1_y += player1_speed
+    if (player1_y<0) player1_y = 0
+    if (player1_y+250>H) player1_y = H-250
+
     player1.style.top = player1_y
 
     player2_y += player2_speed
+    if (player2_y<0) player2_y = 0
+    if (player2_y+250>H) player2_y = H-250
     player2.style.top = player2_y
 }

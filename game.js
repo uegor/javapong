@@ -52,6 +52,7 @@ function change_speed(e){
 
 function loose(n){
     xspeed *= -1
+    yspeed = Math.random()/2
     x = W/2
     y = H/2
     if (n==1) count1.innerHTML = parseInt(count1.innerHTML) + 1
@@ -63,6 +64,14 @@ function move(){
     y += yspeed
 
     //x и у это координаты левого верхнего угла мячика
+    //&& логическое И, 250 - высота платформы
+    if (x<50 || x+25 > W-50){
+        if ((y > player1_y && y<player1_y+250) || (y > player2_y && y<player2_y+250)){
+            xspeed *= -1;
+            yspeed += 1;
+            yspeed *= -1;
+    }}
+
     if (x<0) loose(1)
     if (x>W) loose(2)
     if (y<0 || y>H-50) yspeed *= -1

@@ -18,3 +18,12 @@ h1{
     background: black;
     left:0px; top:0px;
 }
+
+.count1, .count2{
+    font-size: 72px;
+    position: absolute;
+}
+
+.count2{
+    right: 10px;
+}

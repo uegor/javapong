@@ -13,6 +13,8 @@ let yspeed = Math.random()/2
 let player1_speed = 0, player2_speed = 0
 let player1_y, player2_y
 
+let count1, count2
+
 //сразу после загрузки страницы срабатывает этот код
 addEventListener("DOMContentLoaded", function() {
 
@@ -21,6 +23,9 @@ addEventListener("DOMContentLoaded", function() {
     hero = document.getElementsByClassName("hero")[0]
     player1 = document.getElementsByClassName("player1")[0]
     player2 = document.getElementsByClassName("player2")[0]
+
+    count1 = document.getElementsByClassName("count1")[0]
+    count2 = document.getElementsByClassName("count2")[0]
     
     player1_y = H/2 - 125
     player1.style.top = player1_y
@@ -45,12 +50,21 @@ function change_speed(e){
     }
 }
 
+function loose(n){
+    xspeed *= -1
+    x = W/2
+    y = H/2
+    if (n==1) count1.innerHTML = parseInt(count1.innerHTML) + 1
+    if (n==2) count2.innerHTML = parseInt(count1.innerHTML) + 1
+}
+
 function move(){
     x += xspeed
     y += yspeed
 
     //x и у это координаты левого верхнего угла мячика
-    if (x<0 || x>W-50) xspeed *= -1
+    if (x<0) loose(1)
+    if (x>W) loose(2)
     if (y<0 || y>H-50) yspeed *= -1
 
     hero.style.left = x 

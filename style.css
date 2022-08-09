@@ -10,3 +10,11 @@ h1{
     background: black;
     left:0px; top:0px;
 }
+
+.player1,.player2{
+    position: absolute;
+    width: 50px;
+    height: 250px;
+    background: black;
+    left:0px; top:0px;
+}
